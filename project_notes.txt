@@ -1,0 +1,17 @@
+=================
+|   DATABASES   |
+=================
+- When creating tables you don't have to do it manually. You can do it by using php artisan make:migration table_name. This creates a migration file where you can define the table names
+- To run your migration files you can run php artisan migrate. This will look at all migration files and create your tables for you.
+- Seeders allow us to create dummy data. They do this by using factories which use a library called faker to generate random data for us for testing.
+- To run seeders you type php artisan php:seed in the cmd
+- To clear out data you can just run php artisan migration:refresh which clears out all your tables
+- If you want to clear data and reseed it you can run php artisan migration:refresh --seed
+- You can create custom factories with php artisan make:factory SomeNameFactory
+
+
+=================
+|   TEMPLATES   |
+=================
+- @yield('some_name') allows us to specify a location within a template where we should load dynamic content. This allows us to keep things like headers, footers and menus constant without having to define it in each view.
+- In the files that will be components of a page we use @extends('template_name') and then wrap all the content with @section('name_inside_@yield')
