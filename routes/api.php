@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Example of how you would create an endpoint
+// These routes need to be prefixed with api/ when accessing them ie test.co.za/api/posts
+Route::get('/posts', function() {
+    $dummy_data = [
+        'author' => 'Jared',
+        'date_posted' => new DateTime(),
+        'likes' => 69,
+        'comments' => 420,
+    ];
+
+    return response()->json($dummy_data);
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
