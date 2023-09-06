@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=MYyJ4PuL4pY
+Currently At: 1:10
+
 =================
 |   DATABASES   |
 =================
@@ -8,6 +11,16 @@
 - To clear out data you can just run php artisan migration:refresh which clears out all your tables
 - If you want to clear data and reseed it you can run php artisan migration:refresh --seed
 - You can create custom factories with php artisan make:factory SomeNameFactory
+
+
+==============
+|   ROUTES   |
+==============
+- The Route class supports all HTTP verbs
+- When creating routes for your website you would use web.php and for api's you use api.php
+- Routes can return a response, plain text or a view which specifies which template to load when accessing it
+- When using view you can also return data that can be accessed within the template you are loading
+- We can add validation to routes by using the where method to check request params for example if you expect an id to be a number you can check this with a regex
 
 
 =================
