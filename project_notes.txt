@@ -22,9 +22,25 @@ Currently At: 1:10
 - When using view you can also return data that can be accessed within the template you are loading
 - We can add validation to routes by using the where method to check request params for example if you expect an id to be a number you can check this with a regex
 
+===================
+|   CONTROLLERS   |
+===================
+- Naming conventions when it comes to controller function names
+    index - Get all resources
+    show - Show single resource
+    create - Show form to create new resource
+    store - Store new resource
+    edit - Show form to edit resource
+    update - Update resource
+    destroy - Delete resource
+
 
 =================
 |   TEMPLATES   |
 =================
 - @yield('some_name') allows us to specify a location within a template where we should load dynamic content. This allows us to keep things like headers, footers and menus constant without having to define it in each view.
 - In the files that will be components of a page we use @extends('template_name') and then wrap all the content with @section('name_inside_@yield')
+- You can break templates into smaller reusable components. You then use them by saying <x-component-name />
+- You can also pass in props to a component by adding an attribute with a string or number value or a :attribute="$some_var" to pass in variables
+- You can use the $attributes prop to target attributes put onto the component tag ie <x-comp-tag class="test" />
+- Use $slot to output content inside of a component tag within the component
