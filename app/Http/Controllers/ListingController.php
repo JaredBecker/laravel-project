@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
-use Illuminate\Http\Request;
 
 /**
  * Laravel best practice when it comes to naming controller functions
@@ -20,8 +19,9 @@ use Illuminate\Http\Request;
 class ListingController extends Controller
 {
     public function index() {
+        // Using Listing::latest() gives you all records sorted in the latest order. This is a built in function
         return view('listings.index', [
-            'listings' => Listing::all(),
+            'listings' => Listing::latest()->filter(request(['tag']))->get(),
         ]);
     }
 
