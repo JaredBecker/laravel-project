@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -16,20 +17,12 @@ use App\Models\Listing;
 */
 
 // All listings
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listing',
-        'sub_heading' => 'Find the latest Laravel jobs near you',
-        'listings' => Listing::all(),
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
 // Single listing
-Route::get('/listing/{id}', function ($id) {
-    return view('listing', [
-        'listing' => Listing::find($id)
-    ]);
-});
+Route::get('/listing/{listing}', [ListingController::class, 'show']);
+
+
 
 // Example of how to use request params and how to validate them using where
 // Route::get('/posts/{id}', function ($id) {
