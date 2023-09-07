@@ -52,6 +52,6 @@ class ListingController extends Controller
 
         Listing::create($form_fields);
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Job Listing Created Successfully!');
     }
 }
