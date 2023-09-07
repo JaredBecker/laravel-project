@@ -9,16 +9,22 @@ class Listing extends Model
 {
     use HasFactory;
 
-    // You need to create this fillable variable to tell laravel which fields in the table can be fillable because by default non of them are
-    protected $fillable = [
-        'title',
-        'company',
-        'location',
-        'website',
-        'email',
-        'description',
-        'tags',
-    ];
+
+    /**
+     * You need to create this fillable variable to tell laravel which fields in the
+     * table can be fillable because by default none of them are.
+     *
+     * You can also go into AppServiceProvider.php and inside the boot method add Model::unguard()
+     */
+    // protected $fillable = [
+    //     'title',
+    //     'company',
+    //     'location',
+    //     'website',
+    //     'email',
+    //     'description',
+    //     'tags',
+    // ];
 
     public function scopeFilter($query, array $filters)
     {

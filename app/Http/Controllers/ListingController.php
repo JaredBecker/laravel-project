@@ -21,9 +21,10 @@ use Illuminate\Validation\Rule;
 class ListingController extends Controller
 {
     public function index() {
-        // Using Listing::latest() gives you all records sorted in the latest order. This is a built in function
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get(),
+            'listings' => Listing::latest()
+                ->filter(request(['tag', 'search']))
+                ->paginate(6)
         ]);
     }
 
@@ -52,6 +53,6 @@ class ListingController extends Controller
 
         Listing::create($form_fields);
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Job Listing Created Successfully!');
     }
 }

@@ -33,7 +33,9 @@ Currently At: 1:10
     edit - Show form to edit resource
     update - Update resource
     destroy - Delete resource
-
+- To use pagination you can replace get() with paginate(num)
+- This uses tailwind by default but you can change this by running php artisan vendor:publish and find the pagination option.
+- To make sure that theme gets uses you need to add it in AppServiceProvider.php boot method with Model::pagination_type_to_use
 
 =================
 |   TEMPLATES   |

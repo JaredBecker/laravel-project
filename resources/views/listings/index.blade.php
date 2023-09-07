@@ -15,4 +15,10 @@
             </div>
         @endif
     </div>
+
+    @if (count($listings) > 0)
+        <div class="mt-6 p-4">
+            {{ $listings->links() }}
+        </div>
+    @endif
 </x-layout>
