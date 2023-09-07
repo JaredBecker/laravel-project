@@ -21,7 +21,7 @@ class ListingController extends Controller
     public function index() {
         // Using Listing::latest() gives you all records sorted in the latest order. This is a built in function
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag']))->get(),
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get(),
         ]);
     }
 
