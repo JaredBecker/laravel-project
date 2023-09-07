@@ -1,7 +1,7 @@
 @props(['tags'])
 
 @php
-$tags_arr = explode(',', $tags);
+    $tags_arr = explode(',', $tags);
 @endphp
 <ul class="flex">
     @foreach ($tags_arr as $tag)
