@@ -28,6 +28,9 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 // Show registration form
 Route::get('/register', [UserController::class, 'create']);
 
+// Logout
+Route::post('/logout', [UserController::class, 'logout']);
+
 // Create new user
 Route::post('/users', [UserController::class, 'store']);
 
