@@ -56,3 +56,7 @@ Currently At: 1:10
 ======================
 |   AUTHENTICATION   |
 ======================
+- Check UserController for basic auth functionality
+- Check web.php to see how we can guard routes from users who are not logged in
+- For routes you don't want users to access when logged in ie login or register you can added ->middleware('guest')
+- This uses the RouteService provider to see where it should redirect users to. It defaults to home so if this is not your main route go update it

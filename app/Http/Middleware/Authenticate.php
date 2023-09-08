@@ -12,6 +12,8 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
+        // This checks if a user is authenticated and if not it redirects to a route NAMED login. You need to add ->name('login')
+        // to the route so it knows which on to load
         return $request->expectsJson() ? null : route('login');
     }
 }
