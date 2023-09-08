@@ -15,6 +15,9 @@ Route::get('/listings/create', [ListingController::class, 'create'])
 Route::post('/listings', [ListingController::class, 'store'])
     ->middleware('auth');
 
+// Manage Listings
+Route::get('/listings/manage', [ListingController::class, 'manage']);
+
 // Show edit form
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])
     ->middleware('auth');
