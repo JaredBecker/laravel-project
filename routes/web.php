@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // All listings
@@ -23,6 +24,12 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 
 // Single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+// Show registration form
+Route::get('/register', [UserController::class, 'create']);
+
+// Create new user
+Route::post('/users', [UserController::class, 'store']);
 
 // Example of how to use request params and how to validate them using where
 // Route::get('/posts/{id}', function ($id) {

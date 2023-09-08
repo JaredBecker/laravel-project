@@ -52,3 +52,7 @@ Currently At: 1:10
 - You can also pass in props to a component by adding an attribute with a string or number value or a :attribute="$some_var" to pass in variables
 - You can use the $attributes prop to target attributes put onto the component tag ie <x-comp-tag class="test" />
 - Use $slot to output content inside of a component tag within the component
+
+======================
+|   AUTHENTICATION   |
+======================
