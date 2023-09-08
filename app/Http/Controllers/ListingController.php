@@ -55,6 +55,9 @@ class ListingController extends Controller
             $form_fields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
+        // Gets the ID of the currently logged in user
+        $form_fields['user_id'] = auth()->id();
+
         Listing::create($form_fields);
 
         return redirect('/')->with('message', 'Job Listing Created Successfully!');
