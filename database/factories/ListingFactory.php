@@ -26,8 +26,4 @@ class ListingFactory extends Factory
             'description' => $this->faker->paragraph(5),
         ];
     }
-
-    public function user() {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }

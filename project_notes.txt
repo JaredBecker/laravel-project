@@ -11,6 +11,9 @@ Currently At: 1:10
 - To clear out data you can just run php artisan migrate:refresh which clears out all your tables
 - If you want to clear data and reseed it you can run php artisan migrate:refresh --seed
 - You can create custom factories with php artisan make:factory SomeNameFactory
+- To create relationships between tables check the create_listings_table.php file to see how to configure it
+- Then in the models (app/models) you need to specify which table the field is referencing. Check User & Listing for an example.
+- TODO: play around with this because honestly I have no idea how this actually works😅
 
 
 ==============
