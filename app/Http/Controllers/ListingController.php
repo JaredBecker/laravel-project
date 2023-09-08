@@ -69,6 +69,11 @@ class ListingController extends Controller
 
     public function edit(Listing $listing)
     {
+        // Make sure logged in user is owner of listing
+        if ($listing->user_id != auth()->id()) {
+            return redirect('/')->with('message', 'You can not edit other users listings!');
+        }
+
         return view('listings.edit', ['listing' => $listing]);
     }
 
@@ -95,6 +100,11 @@ class ListingController extends Controller
 
     public function destroy(Listing $listing)
     {
+        // Make sure logged in user is owner of listing
+        if ($listing->user_id != auth()->id()) {
+            return redirect('/')->with('message', 'You can not edit other users listings!');
+        }
+
         $listing->delete();
 
         return redirect('/')->with('message', 'Job Listing Deleted Successfully!');
