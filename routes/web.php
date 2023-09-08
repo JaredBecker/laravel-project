@@ -7,13 +7,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ListingController::class, 'index']);
 
 // Show create form
-Route::get('/listing/create', [ListingController::class, 'create']);
+Route::get('/listings/create', [ListingController::class, 'create']);
 
 // Store listing data
 Route::post('/listings', [ListingController::class, 'store']);
 
+// Show edit form
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+// Update listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
 // Single listing
-Route::get('/listing/{listing}', [ListingController::class, 'show']);
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 // Example of how to use request params and how to validate them using where
 // Route::get('/posts/{id}', function ($id) {
