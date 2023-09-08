@@ -28,11 +28,17 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 // Show registration form
 Route::get('/register', [UserController::class, 'create']);
 
+// Show login form
+Route::get('/login', [UserController::class, 'login']);
+
 // Logout
 Route::post('/logout', [UserController::class, 'logout']);
 
 // Create new user
 Route::post('/users', [UserController::class, 'store']);
+
+// Login User
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // Example of how to use request params and how to validate them using where
 // Route::get('/posts/{id}', function ($id) {

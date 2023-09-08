@@ -32,6 +32,29 @@ class UserController extends Controller
         return redirect('/')->with('message', 'User created and logged in!');
     }
 
+    public function login() {
+        return view('users.login');
+    }
+
+    public function authenticate(Request $request) {
+        $form_fields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+
+        // Try and log user in with provided values
+        if (auth()->attempt($form_fields)) {
+            // Generate session ID
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message', 'Logged in successfully!');
+        }
+
+        // Overrides validation error to make sure the person can't guess which emails are already in the DB
+        return back()->withErrors(['email' => 'Please check email and password and try again.'])
+            ->onlyInput('email');
+    }
+
     public function logout(Request $request) {
         // Logout
         auth()->logout();
