@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+            // ->constrained() Creates a foreign key constraint (Reference primary key) on the table name provided. Default column name it looks for is id
+            // ->onDelete('cascade') Makes sure if the user id deleted that it deletes all listings created by that user
+            // $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->string('logo')->nullable();
             $table->string('tags');

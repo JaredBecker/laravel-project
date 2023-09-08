@@ -35,4 +35,8 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function listings() {
+        return $this->hasMany(Listing::class, 'user_id');
+    }
 }
