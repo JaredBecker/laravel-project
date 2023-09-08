@@ -51,6 +51,10 @@ class ListingController extends Controller
             'description' => 'required'
         ]);
 
+        if ($request->hasFile('logo')) {
+            $form_fields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
         Listing::create($form_fields);
 
         return redirect('/')->with('message', 'Job Listing Created Successfully!');

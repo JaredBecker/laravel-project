@@ -8,8 +8,8 @@ Currently At: 1:10
 - To run your migration files you can run php artisan migrate. This will look at all migration files and create your tables for you.
 - Seeders allow us to create dummy data. They do this by using factories which use a library called faker to generate random data for us for testing.
 - To run seeders you type php artisan php:seed in the cmd
-- To clear out data you can just run php artisan migration:refresh which clears out all your tables
-- If you want to clear data and reseed it you can run php artisan migration:refresh --seed
+- To clear out data you can just run php artisan migrate:refresh which clears out all your tables
+- If you want to clear data and reseed it you can run php artisan migrate:refresh --seed
 - You can create custom factories with php artisan make:factory SomeNameFactory
 
 
@@ -36,6 +36,12 @@ Currently At: 1:10
 - To use pagination you can replace get() with paginate(num)
 - This uses tailwind by default but you can change this by running php artisan vendor:publish and find the pagination option.
 - To make sure that theme gets uses you need to add it in AppServiceProvider.php boot method with Model::pagination_type_to_use
+
+===================
+|   STORE FILES   |
+===================
+- When storing files we can access the file being sent with $request->file('input_name')->store()
+- This uses the filesystems.php file to find out where it should store the file.
 
 =================
 |   TEMPLATES   |
